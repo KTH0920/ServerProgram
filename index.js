@@ -27,10 +27,12 @@ app.post("/users", (req, res)=> {
     }
 })
 
-app.get("/users", (req,res)=>{
+app.get("/users",(req,res)=>{
     try {
-        res.json(users)
-        res.status(200).json({message:"성공적 가져오기"})
+            res.status(200).json({
+            message: "가져오기 성공!",
+            users
+        });
     } catch (error) {
         console.error("사용자 조회중 오류",error)
         res.status(500).json({message:"서버 내부 오류 발생"})
